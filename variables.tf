@@ -7,6 +7,8 @@ Required:
     - resource_group_name
 Optional:
     - administrator_password
+    - administrator_password_key_vault_id (alternative to administrator_password - read from Key Vault instead)
+    - administrator_password_key_vault_secret_name (alternative to administrator_password - read from Key Vault instead)
     - administrator_username
     - authentication_methods
     - compute_tier
@@ -39,25 +41,27 @@ Nested mongo_cluster_users (azurerm_mongo_cluster_user):
 EOT
 
   type = map(object({
-    location               = string
-    name                   = string
-    resource_group_name    = string
-    storage_type           = optional(string) # Default: "PremiumSSD"
-    storage_size_in_gb     = optional(number)
-    source_server_id       = optional(string)
-    source_location        = optional(string)
-    shard_count            = optional(number)
-    public_network_access  = optional(string) # Default: "Enabled"
-    preview_features       = optional(list(string))
-    high_availability_mode = optional(string)
-    data_api_mode_enabled  = optional(bool)   # Default: false
-    create_mode            = optional(string) # Default: "Default"
-    compute_tier           = optional(string)
-    authentication_methods = optional(set(string))
-    administrator_username = optional(string)
-    administrator_password = optional(string)
-    tags                   = optional(map(string))
-    version                = optional(string)
+    location                                     = string
+    name                                         = string
+    resource_group_name                          = string
+    storage_type                                 = optional(string) # Default: "PremiumSSD"
+    storage_size_in_gb                           = optional(number)
+    source_server_id                             = optional(string)
+    source_location                              = optional(string)
+    shard_count                                  = optional(number)
+    public_network_access                        = optional(string) # Default: "Enabled"
+    preview_features                             = optional(list(string))
+    high_availability_mode                       = optional(string)
+    data_api_mode_enabled                        = optional(bool)   # Default: false
+    create_mode                                  = optional(string) # Default: "Default"
+    compute_tier                                 = optional(string)
+    authentication_methods                       = optional(set(string))
+    administrator_username                       = optional(string)
+    administrator_password                       = optional(string)
+    administrator_password_key_vault_id          = optional(string)
+    administrator_password_key_vault_secret_name = optional(string)
+    tags                                         = optional(map(string))
+    version                                      = optional(string)
     customer_managed_key = optional(object({
       key_vault_key_id          = string
       user_assigned_identity_id = string
