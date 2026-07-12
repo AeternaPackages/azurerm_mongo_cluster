@@ -1,4 +1,9 @@
 # --- azurerm_mongo_cluster ---
+output "mongo_clusters_id" {
+  description = "Map of id values across all mongo_clusters, keyed the same as var.mongo_clusters"
+  value       = module.mongo_clusters.mongo_clusters_id
+}
+
 output "mongo_clusters_administrator_password" {
   description = "Map of administrator_password values across all mongo_clusters, keyed the same as var.mongo_clusters"
   value       = module.mongo_clusters.mongo_clusters_administrator_password
@@ -117,6 +122,11 @@ output "mongo_clusters_version" {
 }
 
 # --- azurerm_mongo_cluster_firewall_rule ---
+output "mongo_cluster_firewall_rules_id" {
+  description = "Map of id values across all mongo_cluster_firewall_rules, keyed the same as var.mongo_cluster_firewall_rules"
+  value       = module.mongo_cluster_firewall_rules.mongo_cluster_firewall_rules_id
+}
+
 output "mongo_cluster_firewall_rules_end_ip_address" {
   description = "Map of end_ip_address values across all mongo_cluster_firewall_rules, keyed the same as var.mongo_cluster_firewall_rules"
   value       = module.mongo_cluster_firewall_rules.mongo_cluster_firewall_rules_end_ip_address
@@ -138,6 +148,11 @@ output "mongo_cluster_firewall_rules_start_ip_address" {
 }
 
 # --- azurerm_mongo_cluster_user ---
+output "mongo_cluster_users_id" {
+  description = "Map of id values across all mongo_cluster_users, keyed the same as var.mongo_cluster_users"
+  value       = module.mongo_cluster_users.mongo_cluster_users_id
+}
+
 output "mongo_cluster_users_identity_provider_type" {
   description = "Map of identity_provider_type values across all mongo_cluster_users, keyed the same as var.mongo_cluster_users"
   value       = module.mongo_cluster_users.mongo_cluster_users_identity_provider_type
