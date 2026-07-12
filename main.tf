@@ -5,7 +5,7 @@ locals {
     for k1, v1 in var.mongo_clusters : {
       for k2, v2 in coalesce(v1.mongo_cluster_firewall_rules, {}) :
       "${k1}/${k2}" => merge(v2, {
-        mongo_cluster_id = module.mongo_clusters.mongo_clusters["${k1}"].id
+        mongo_cluster_id = module.mongo_clusters.mongo_clusters_id["${k1}"]
       })
     }
   ]...)
@@ -14,7 +14,7 @@ locals {
     for k1, v1 in var.mongo_clusters : {
       for k2, v2 in coalesce(v1.mongo_cluster_users, {}) :
       "${k1}/${k2}" => merge(v2, {
-        mongo_cluster_id = module.mongo_clusters.mongo_clusters["${k1}"].id
+        mongo_cluster_id = module.mongo_clusters.mongo_clusters_id["${k1}"]
       })
     }
   ]...)
