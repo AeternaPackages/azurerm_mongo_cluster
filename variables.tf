@@ -79,10 +79,10 @@ EOT
       identity_provider_type = string
       object_id              = string
       principal_type         = string
-      role = object({
+      role = list(object({
         database = string
         name     = string
-      })
+      }))
     })))
   }))
 
