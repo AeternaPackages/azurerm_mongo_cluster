@@ -21,18 +21,18 @@ locals {
 }
 
 module "mongo_clusters" {
-  source         = "git::https://github.com/AeternaModules/azurerm_mongo_cluster.git?ref=v5.0.0"
+  source         = "git::https://github.com/AeternaModules/azurerm_mongo_cluster.git?ref=v5.0.1"
   mongo_clusters = local.mongo_clusters
 }
 
 module "mongo_cluster_firewall_rules" {
-  source                       = "git::https://github.com/AeternaModules/azurerm_mongo_cluster_firewall_rule.git?ref=v5.0.0"
+  source                       = "git::https://github.com/AeternaModules/azurerm_mongo_cluster_firewall_rule.git?ref=v5.0.1"
   mongo_cluster_firewall_rules = local.mongo_cluster_firewall_rules
   depends_on                   = [module.mongo_clusters]
 }
 
 module "mongo_cluster_users" {
-  source              = "git::https://github.com/AeternaModules/azurerm_mongo_cluster_user.git?ref=v5.0.0"
+  source              = "git::https://github.com/AeternaModules/azurerm_mongo_cluster_user.git?ref=v5.0.1"
   mongo_cluster_users = local.mongo_cluster_users
   depends_on          = [module.mongo_clusters]
 }
